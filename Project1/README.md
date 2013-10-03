@@ -1,7 +1,7 @@
 BST From Python to C++
 ======================
 
-\This directory contains implementations of different Binary Search Trees
+This directory contains implementations of different Binary Search Trees
 (BSTs), in particular vanilla (unbalanced) BSTs and AVL (balanced) trees.
 
 1. Vanilla BSTs.
@@ -15,8 +15,9 @@ BST From Python to C++
 
 USAGE
 -----
-
-Project1.exe "<number-of-random-items | item item item ...>"
+```
+Project1.exe <number-of-random-items | item item item ...>
+```
 
 Either Provide a n integer to insert n random generated keys OR
 provide a list of integers.
@@ -26,6 +27,7 @@ EXAMPLES
 
 Project1.exe 1 2 3 4
 
+```
 <empty tree>
 -------------------------------------------------------
 ***** Unbalanced (1) ******
@@ -92,3 +94,5 @@ Project1.exe 1 2 3 4
     /\
 
 -------------------------------------------------------
+
+```

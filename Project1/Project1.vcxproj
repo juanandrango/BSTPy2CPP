@@ -62,14 +62,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AVL.cpp" />
     <ClCompile Include="MinBSTNode.cpp" />
     <ClCompile Include="BSTTest.cpp" />
     <ClCompile Include="BSTNode.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AVL.h" />
+    <ClInclude Include="AVLNode.h" />
     <ClInclude Include="BSTNode.h" />
     <ClInclude Include="BST.h" />
     <ClInclude Include="MinBSTNode.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="README.md" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

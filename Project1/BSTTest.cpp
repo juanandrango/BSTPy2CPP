@@ -5,11 +5,10 @@
 #include <ctime>
 #include <cstdlib>
 
-#include "BST.h"
+#include "AVL.h"
 
 using namespace std;
 
-//MinBST can be implemented by simply changing the node_t to MinBSTNode!
 template<class node_t>
 void test(int argc, char *argv[]){
 	srand(time(0));
@@ -27,17 +26,24 @@ void test(int argc, char *argv[]){
 	}
 
 	BST<node_t> tree;
+	AVL balancedTree;
 	cout << tree << endl;
 	for (int i = 0 ; i < (int)items.size() ; i++) {
 		tree.insert(items.at(i));
+		balancedTree.insert(items.at(i));
+		cout << "-------------------------------------------------------" << endl;
+		cout << "***** Unbalanced (" << i+1 << ") ******" << endl;
 		cout << tree << endl;
+		cout << "***** Balancend (" << i+1 << ") *******" << endl;
+		cout << balancedTree << endl;
+		cout << "-------------------------------------------------------\n\n" << endl;
 	}
 }
 
 int main(int argc, char *argv[]) {
 
 	test<BSTNode>(argc, argv);
-	test<MinBSTNode>(argc, argv);
+	//test<MinBSTNode>(argc, argv);
 
 	return 0;
 }

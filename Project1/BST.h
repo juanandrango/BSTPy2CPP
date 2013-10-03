@@ -3,17 +3,12 @@
 
 #include "MinBSTNode.h"
 
-// TODO Use a template to declare the BSTNode type to be used in the 
-// BST tree. For now, we will toggle the node_t typedef from BSTNode
-// to minBSTNode so we test both
-//typedef BSTNode node_t;
-
 // A binary search tree
 template<class node_t> class BST {
 public: 
 	node_t* rootPtr;
 	BST() : rootPtr(nullptr) {}
-	node_t* find(BSTNode_key_t newKey) { return rootPtr->find(newKey); }
+	node_t* find(BSTNode_key_t newKey) { return static_cast<node_t*>(rootPtr->find(newKey)); }
 	node_t* find_min() { return rootPtr->find_min(); }
 	
 	// This function creates dynamic allocated nodes of the type node_t
@@ -40,15 +35,15 @@ public:
 			node_t pseudoroot( *(static_cast<node_t*>(nullptr)), 0);	
 			pseudoroot.leftChildPtr = rootPtr;
 			rootPtr->parentPtr = &pseudoroot;
-			node_t* deleted = rootPtr->my_delete();
-			rootPtr = pseudoroot.leftChildPtr;
+			node_t* deleted = static_cast<node_t*>(rootPtr->my_delete());
+			rootPtr = static_cast<node_t*>(pseudoroot.leftChildPtr);
 			if (rootPtr != nullptr)
 				rootPtr->parentPtr = nullptr;
 			node_t newDeleted(*deleted);
 			delete deleted;
 			return newDeleted;
 		} else {
-			node_t newDeleted(*(node->my_delete()));
+			node_t newDeleted(*(static_cast<node_t*>(node->my_delete())));
 			delete node->my_delete();
 			return newDeleted;
 		}
